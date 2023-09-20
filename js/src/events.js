@@ -1,4 +1,14 @@
-const image1Listener = new Listener();
-const image2Listener = new Listener();
-const image3Listener = new Listener();
-const coverListener = new Listener();
+const imageListener = new Listener(
+    "click",
+    (ctx)=>{
+        _selectedImage = ctx;
+        _Manager.get("cover").values["img"].src = ctx.htmlElement.src;
+        _Manager.get("cover").overwriteStyles(0);
+    }
+);
+const coverListener = new Listener(
+    "click",
+    (ctx)=>{
+        ctx.overwriteStyles(1);
+    }
+);
